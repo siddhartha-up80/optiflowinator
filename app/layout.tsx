@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +23,23 @@ export default function RootLayout({
         name="google-site-verification"
         content="wuKkVFD1dhs31EjQNk81yBbw-temshhMPPc8JGAUC94"
       />
-      <body className={inter.className}>{children}</body>
+      <body
+        className={inter.className}
+        style={{
+          backgroundImage: 'url("/images/background.jpg")',
+          backgroundPosition: "center",
+          backgroundBlendMode: "multiply",
+          backgroundSize: "cover",
+        }}
+      >
+        <div>
+          <Navbar />
+        </div>
+        <div className="min-h-screen max-w-7xl mx-auto">{children}</div>
+        <div>
+          <Footer />
+        </div>
+      </body>
     </html>
   );
 }
