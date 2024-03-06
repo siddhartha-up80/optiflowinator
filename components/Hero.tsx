@@ -13,9 +13,9 @@ const Hero = () => {
             <span className="text-green-600">Inator</span>
           </h1>
           <p className="px-8 mt-8 mb-12 text-lg">
-            Start your coding journey today with the ultimate Optiflow
-            powered by Artificial Intelligence for explaining and optimizing, Share your code
-            with your fellow developers!
+            Start your coding journey today with the ultimate Optiflow powered
+            by Artificial Intelligence for explaining and optimizing, Share your
+            code with your fellow developers!
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link className="" href={"#code"}>
@@ -23,7 +23,7 @@ const Hero = () => {
             </Link>
             <Link href={"/help"}>
               <Button variant={"outline"} className="text-lg font-semibold">
-                Learn more
+                View Community
               </Button>
             </Link>
           </div>
@@ -43,7 +43,26 @@ const Hero = () => {
               <div className="p-4 text-center">
                 <h2 className="text-lg font-bold mb-2">Step 2</h2>
                 <p className="text-gray-700">
-                  Choose how you want the <br /> code to be explained.
+                  Choose how you want the <br /> code to be explained or
+                  optimized.
+                </p>
+              </div>
+            </div>
+            <div className="w-full md:w-1/2">
+              <div className="p-4 text-center">
+                <h2 className="text-lg font-bold mb-2">Step 3</h2>
+                <p className="text-gray-700">
+                  Login or SignUp
+                  <br /> to continue sharing with community.
+                </p>
+              </div>
+            </div>
+            <div className="w-full md:w-1/2">
+              <div className="p-4 text-center">
+                <h2 className="text-lg font-bold mb-2">Step 4</h2>
+                <p className="text-gray-700">
+                  Share your masterpiece <br />
+                  with fellow developers.
                 </p>
               </div>
             </div>

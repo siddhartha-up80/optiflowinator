@@ -17,7 +17,7 @@ export default function Navbar() {
 
   return (
     <div className="pb-24 flex items-center justify-center w-full">
-      <header className="px-4 py-3 shadow text-gray-800 w-full h-max bg-white dark:bg-black dark:text-white fixed top-3  max-w-7xl mx-auto rounded-md">
+      <header className="px-4 py-3 shadow text-gray-800 w-full h-max bg-green-50/90 dark:bg-black dark:text-white fixed md:top-3 top-0 max-w-7xl mx-auto rounded-md z-50">
         <div className="flex justify-between items-center">
           {!state ? (
             <Link
