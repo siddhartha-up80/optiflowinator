@@ -5,9 +5,17 @@ import Link from "next/link";
 import { Menu } from "lucide-react";
 import { Button } from "./ui/button";
 import Image from "next/image";
+import { useSession, signIn, signOut } from "next-auth/react";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 export default function Navbar() {
   const [state, setState] = React.useState(false);
+
+  const session = useSession();
 
   const menus = [
     { title: "Home", path: "/" },
@@ -32,8 +40,9 @@ export default function Navbar() {
                 src="/images/logo.jpg"
                 alt="logo"
               />
-              <span className="text-3xl font-bold">
-                OptiFlow <span className="text-green-600">Inator</span>
+              <span className="text-2xl md:text-3xl font-bold flex gap-x-1 flex-col md:flex-row leading-tight">
+                <span>OptiFlow</span>
+                <span className="text-green-600">Inator</span>
               </span>
             </Link>
           ) : null}
@@ -44,6 +53,52 @@ export default function Navbar() {
               }`}
             >
               <ul className="justify-center items-center space-y-8 md:flex md:space-x-6 md:space-y-0 mt-2 ml-5">
+                <li className="md:hidden">
+                  {session?.data?.user?.image && (
+                    <div className="mx-auto">
+                      <Popover>
+                        <PopoverTrigger>
+                          <div className="flex gap-2 items-center">
+                            <Image
+                              src={session?.data?.user.image}
+                              height={200}
+                              width={200}
+                              alt={
+                                session?.data?.user.name
+                                  ? session?.data?.user.name
+                                  : "user"
+                              }
+                              className="rounded-full w-10"
+                            />
+                            <span className="text-lg font-semibold">
+                              {session?.data?.user.name}
+                            </span>
+                          </div>
+                        </PopoverTrigger>
+                        <PopoverContent className="flex flex-col gap-4 justify-between">
+                          <div className="flex gap-2 items-center">
+                            <Image
+                              src={session?.data?.user.image}
+                              height={200}
+                              width={200}
+                              alt={
+                                session?.data?.user.name
+                                  ? session?.data?.user.name
+                                  : "user"
+                              }
+                              className="rounded-full w-10"
+                            />
+                            <span className="text-lg font-semibold">
+                              {session?.data?.user.name}
+                            </span>
+                          </div>
+
+                          <Button onClick={() => signOut()}>Sign Out</Button>
+                        </PopoverContent>
+                      </Popover>
+                    </div>
+                  )}
+                </li>
                 {menus.map((item, idx) => (
                   <li
                     key={idx}
@@ -54,9 +109,59 @@ export default function Navbar() {
                 ))}
               </ul>
             </div>
-            <div className="items-center flex-shrink-0 hidden lg:flex ml-6">
-              <Button className="px-8 py-2 font-semibold ">Log in</Button>
-            </div>
+
+            {session?.data?.user ? (
+              <div className="gap-4 items-center ml-8 hidden md:flex">
+                {session?.data?.user.image && (
+                  <div className="mx-auto">
+                    <Popover>
+                      <PopoverTrigger>
+                        <Image
+                          src={session?.data?.user.image}
+                          height={200}
+                          width={200}
+                          alt={
+                            session?.data?.user.name
+                              ? session?.data?.user.name
+                              : "user"
+                          }
+                          className="rounded-full w-10"
+                        />
+                      </PopoverTrigger>
+                      <PopoverContent className="flex flex-col gap-4 justify-between">
+                        <div className="flex gap-2 items-center">
+                          <Image
+                            src={session?.data?.user.image}
+                            height={200}
+                            width={200}
+                            alt={
+                              session?.data?.user.name
+                                ? session?.data?.user.name
+                                : "user"
+                            }
+                            className="rounded-full w-10"
+                          />
+                          <span className="text-lg font-semibold">
+                            {session?.data?.user.name}
+                          </span>
+                        </div>
+
+                        <Button onClick={() => signOut()}>Sign Out</Button>
+                      </PopoverContent>
+                    </Popover>
+                  </div>
+                )}
+                {/* <div className="text-xl font-semibold">
+                  User Name: {session?.data?.user.name}
+                </div> */}
+              </div>
+            ) : (
+              <Link href={`/api/auth/signin`}>
+                <Button className="ml-8" size={`lg`}>
+                  Sign In
+                </Button>
+              </Link>
+            )}
           </div>
 
           <button

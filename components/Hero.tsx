@@ -21,7 +21,7 @@ const Hero = () => {
             <Link className="" href={"#code"}>
               <Button className="text-lg font-semibold">Get started</Button>
             </Link>
-            <Link href={"/help"}>
+            <Link href={"/optiflow"}>
               <Button variant={"outline"} className="text-lg font-semibold">
                 View Community
               </Button>

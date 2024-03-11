@@ -5,6 +5,8 @@ import { Button } from "./ui/button";
 import AICodeEditor from "./AICodeEditor";
 import { useCodeEditor } from "@/app/context/CodeEditorContext";
 import DropDownBasic from "./DropDown";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 
 const AIEditor = () => {
   const { codeValue }: any = useCodeEditor();
@@ -39,7 +41,7 @@ const AIEditor = () => {
   };
 
   return (
-    <div >
+    <div>
       <div className="bg-gradient-to-b bg-green-600 ">
         <div className=" flex md:flex-col-reverse flex-col mx-auto lg:flex-row items-stretch min-h-[80vh] md:p-0 px-5">
           <div className="flex flex-col md:px-6 px-2 py-8 space-y-6 rounded-sm sm:p-8 lg:p-12 lg:w-1/2 xl:w-2/5 h-full">
@@ -57,9 +59,9 @@ const AIEditor = () => {
             <div className=" flex flex-col md:flex-col md:gap-4 gap-y-4">
               <div className="group relative rounded-lg pl-1 md:pl-4 pr-1 py-1 lg:p-6 cursor-pointer bg-white  lg:ring-1 lg:ring-inset lg:ring-white/10">
                 <div className="flex items-center justify-between">
-                  <div className="flex">
-                    <div className="font-display text-2xl text-blue-600">
-                      🤖
+                  <div className="flex items-center">
+                    <div className="font-display text-xl text-green-600">
+                      <ArrowRight />
                     </div>
                     <p className="ml-2 mr-2 mt-1 text-md lg:block  text-gray-700 font-semibold">
                       Get code explanation
@@ -79,9 +81,9 @@ const AIEditor = () => {
 
               <div className="group relative rounded-lg pl-1 md:pl-4 pr-1 py-1 lg:p-6 cursor-pointer bg-white  lg:ring-1 lg:ring-inset lg:ring-white/10">
                 <div className="flex items-center justify-between">
-                  <div className="flex">
-                    <div className="font-display text-2xl text-blue-600">
-                      🤖
+                  <div className="flex items-center">
+                    <div className="font-display text-2xl text-green-600">
+                      <ArrowRight />
                     </div>
                     <p className="ml-2 mr-2 mt-1 text-md lg:block  text-gray-700 font-semibold">
                       Optimise
@@ -101,9 +103,9 @@ const AIEditor = () => {
 
               <div className="group relative rounded-lg pl-1 md:pl-4 pr-1 py-1 lg:p-6 cursor-pointer bg-white  lg:ring-1 lg:ring-inset lg:ring-white/10">
                 <div className="flex items-center justify-between">
-                  <div className="flex">
-                    <div className="font-display text-2xl text-blue-600">
-                      🤖
+                  <div className="flex items-center">
+                    <div className="font-display text-2xl text-green-600">
+                      <ArrowRight />
                     </div>
                     <p className="ml-2 mr-2 mt-1 text-md lg:block  text-gray-700 font-semibold">
                       Convert to{" "}

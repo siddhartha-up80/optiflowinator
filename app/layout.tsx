@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { CodeEditorProvider } from "./context/CodeEditorContext";
+import { SessionProvider } from "next-auth/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,15 +34,17 @@ export default function RootLayout({
           backgroundSize: "cover",
         }}
       >
-        <div>
-          <Navbar />
-        </div>
-        <div className="min-h-screen">
-          <CodeEditorProvider>{children}</CodeEditorProvider>
-        </div>
-        <div>
-          <Footer />
-        </div>
+        <SessionProvider>
+          {/* <div>
+            <Navbar />
+          </div> */}
+          <div className="min-h-screen">
+            <CodeEditorProvider>{children}</CodeEditorProvider>
+          </div>
+          <div>
+            <Footer />
+          </div>
+        </SessionProvider>
       </body>
     </html>
   );
