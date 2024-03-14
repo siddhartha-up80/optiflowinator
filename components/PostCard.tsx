@@ -18,7 +18,6 @@ const dataCard = ({ data, handleEdit, handleDelete, handleTagClick }: any) => {
 
   //   console.log(data.post);
 
-
   const handleProfileClick = () => {
     console.log(data);
 
