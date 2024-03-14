@@ -41,7 +41,7 @@ const frameworks = [
   },
 ];
 
-export default function DropDownBasic({ getAiCode, codeValue }: any) {
+export default function DropDownBasic({ getAiCode, codeValue, setLanguage }: any) {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState("");
 
@@ -71,8 +71,12 @@ export default function DropDownBasic({ getAiCode, codeValue }: any) {
                 value={framework.value}
                 onSelect={(currentValue) => {
                   setValue(currentValue === value ? "" : currentValue);
+                  setLanguage(currentValue);
                   getAiCode(
-                    "Convert this code to " + currentValue + ": " + codeValue
+                    "Try to Convert this code to " +
+                      currentValue +
+                      ": " +
+                      codeValue
                   );
                   setOpen(false);
                 }}

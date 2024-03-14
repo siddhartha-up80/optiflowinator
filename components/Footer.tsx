@@ -10,7 +10,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <div>
+    <div className="relative z-50">
       <>
         <div>
           <div

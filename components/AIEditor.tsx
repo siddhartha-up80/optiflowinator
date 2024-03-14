@@ -12,6 +12,7 @@ const AIEditor = () => {
   const { codeValue }: any = useCodeEditor();
   const [loading, setLoading] = useState(false);
   const [aiCode, setAiCode] = useState("");
+  const [language, setLanguage] = useState("python");
 
   const getAiCode = async (code: any) => {
     try {
@@ -124,7 +125,7 @@ const AIEditor = () => {
                     Explain
                   </Button> */}
 
-                  <DropDownBasic getAiCode={getAiCode} codeValue={codeValue} />
+                  <DropDownBasic getAiCode={getAiCode} codeValue={codeValue} setLanguage={setLanguage} />
                 </div>
               </div>
             </div>
@@ -143,9 +144,19 @@ const AIEditor = () => {
                 <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-rose-600 mx-auto"></div>
               </div>
             ) : aiCode != "" ? (
-              <AICodeEditor showcopy={true} aiValue={aiCode} />
+              <AICodeEditor
+                showcopy={true}
+                aiValue={aiCode}
+                language={language}
+                
+              />
             ) : (
-              <AICodeEditor showcopy={true} aiValue={codeValue} />
+              <AICodeEditor
+                showcopy={true}
+                aiValue={codeValue}
+                language={language}
+                
+              />
             )}
           </div>
         </div>

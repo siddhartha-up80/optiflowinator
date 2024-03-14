@@ -1,13 +1,13 @@
 //@ts-nocheck
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Editor from "@monaco-editor/react";
 import { useCodeEditor } from "@/app/context/CodeEditorContext";
 import { Button } from "./ui/button";
 import { Clipboard, ClipboardCheck } from "lucide-react";
 
-const AICodeEditor = ({ showcopy, aiValue }) => {
+const AICodeEditor = ({ showcopy, aiValue, language }) => {
   const { codeValue, updateCodeValue } = useCodeEditor();
   const [newCode, setNewCode] = useState(aiValue);
 
@@ -18,6 +18,10 @@ const AICodeEditor = ({ showcopy, aiValue }) => {
     setNewCode(value);
     updateCodeValue(value);
   };
+
+  useEffect(() => {
+    updateCodeValue(aiValue);
+  }, []);
 
   return (
     <div style={{ position: "relative" }}>
@@ -60,9 +64,9 @@ const AICodeEditor = ({ showcopy, aiValue }) => {
       </div>
 
       <Editor
-        height={"80vh"}
+        height={"90vh"}
         width={"100%"}
-        defaultLanguage="python"
+        defaultLanguage={language}
         value={newCode}
         // defaultValue={`print("Welcome to OptiFlow Inator")`}
         theme="vs-dark"
