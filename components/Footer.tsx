@@ -10,7 +10,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <div className="relative z-50">
+    <div className="">
       <>
         <div>
           <div
@@ -95,7 +95,7 @@ const Footer = () => {
           </div>
         </div>
       </>
-      <footer className="text-white body-font bg-black">
+      <footer className="text-white body-font bg-black relative z-50">
         <div className=" px-3 pr-5 py-3 mx-auto flex items-center justify-between sm:flex-row flex-col">
           <Link
             href="/"

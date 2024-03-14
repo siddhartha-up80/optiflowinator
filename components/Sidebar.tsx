@@ -15,6 +15,8 @@ import { SidebarItems } from "@/types";
 import SidebarButton from "./SidebarButton";
 import PostDialog from "./PostDialog";
 
+
+
 const sidebarItems: SidebarItems = {
   links: [
     {
@@ -33,7 +35,7 @@ const sidebarItems: SidebarItems = {
       icon: Info,
     },
     {
-      label: "List",
+      label: "Topics",
       href: "/optiflow/list",
       icon: List,
     },
