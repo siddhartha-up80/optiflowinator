@@ -3,7 +3,9 @@ import Rightbar from "@/components/Rightbar";
 
 const getAllPosts = async () => {
   try {
-    const response = await fetch("http:localhost:3000/api/post");
+    const response = await fetch(
+      `${process.env.NEXT_HOST_URL}/api/post`
+    );
 
     const data = await response.json();
 
