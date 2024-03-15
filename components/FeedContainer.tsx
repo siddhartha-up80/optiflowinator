@@ -6,6 +6,9 @@ import Rightbar from "./Rightbar";
 import Feed from "./Feed";
 import MobileRightbar from "./MobileRightbar";
 
+
+export const dynamic = "force-dynamic";
+
 const FeedContainer = ({ allPosts }: any) => {
   const [searchText, setSearchText] = useState("");
   const [searchTimeout, setSearchTimeout] = useState(null);

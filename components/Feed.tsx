@@ -2,8 +2,9 @@
 "use client";
 
 import React from "react";
-import { Card } from "./ui/card";
 import PostCard from "./PostCard";
+
+export const dynamic = "force-dynamic";
 
 const Feed = ({
   allPosts,
