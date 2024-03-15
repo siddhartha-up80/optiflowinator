@@ -25,14 +25,12 @@ const Page = async () => {
     return (
       <div>
         <Rightbar />
-        <div className="mr-[360px]">Posts not found</div>
+        <div className="md:mr-[360px]">Posts not found</div>
       </div>
     );
   }
 
-  return (
-    <FeedContainer allPosts={allPosts} />
-  );
+  return <FeedContainer allPosts={allPosts} />;
 };
 
 export default Page;

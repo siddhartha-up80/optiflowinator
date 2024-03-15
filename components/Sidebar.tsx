@@ -2,20 +2,10 @@
 
 import React from "react";
 import SidebarDesktop from "./SidebarDesktop";
-import {
-  BookmarkPlus,
-  Home,
-  Info,
-  List,
-  MoreHorizontal,
-  StickyNote,
-  User,
-} from "lucide-react";
+import { Home, Info, List, StickyNote, User } from "lucide-react";
 import { SidebarItems } from "@/types";
 import SidebarButton from "./SidebarButton";
 import PostDialog from "./PostDialog";
-
-
 
 const sidebarItems: SidebarItems = {
   links: [
@@ -38,11 +28,6 @@ const sidebarItems: SidebarItems = {
       label: "Topics",
       href: "/optiflow/list",
       icon: List,
-    },
-    {
-      label: "Bookmarks",
-      href: "/optiflow/bookmarks",
-      icon: BookmarkPlus,
     },
     {
       label: "Profile",

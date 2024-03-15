@@ -7,12 +7,15 @@ import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import PostEditor from "./PostEditor";
+import { Button } from "./ui/button";
 
-const dataCard = ({ data, handleEdit, handleDelete, handleTagClick }: any) => {
+const PostCard = ({ data, handleEdit, handleDelete, handleTagClick }: any) => {
   const session = useSession();
 
-//   console.log(session.data?.user?.id);
-//   console.log(data.creator?._id);
+  // console.log(data)
+
+  //   console.log(session.data?.user?.id);
+  //   console.log(data.creator?._id);
   const pathName = usePathname();
   const router = useRouter();
 
@@ -22,15 +25,17 @@ const dataCard = ({ data, handleEdit, handleDelete, handleTagClick }: any) => {
     console.log(data);
 
     if (data.creator?._id === session?.user?.id)
-      return router?.push("/profile");
+      return router?.push("/optiflow/profile");
 
-    router.push(`/profile/${data.creator?._id}?name=${data.creator?.username}`);
+    router.push(
+      `/optiflow/profile/${data.creator?._id}?name=${data.creator?.username}`
+    );
   };
 
   return (
     <Card className="min-h-[60vh] w-full bg-white dark:bg-gray-700">
       <CardHeader>
-        {data.creator ? (
+        {data?.creator ? (
           <div className="flex justify-between">
             <div onClick={handleProfileClick}>
               <div className="flex">
@@ -44,7 +49,7 @@ const dataCard = ({ data, handleEdit, handleDelete, handleTagClick }: any) => {
                 <div className="ml-2 cursor-pointer">
                   <div className="font-bold">
                     <div onClick={handleProfileClick} className="text-sm">
-                      {data.creator?.username}
+                      {data?.creator?.username}
                     </div>
                   </div>
                   <div className="text-sm">{data.creator?.email}</div>
@@ -59,35 +64,37 @@ const dataCard = ({ data, handleEdit, handleDelete, handleTagClick }: any) => {
         )}
       </CardHeader>
       <CardContent>
-        <PostEditor postCode={data.post} />
+        <PostEditor postCode={data?.post} />
       </CardContent>
       <CardFooter>
         <div className="">
           <span className="flex justify-center items-center">
-            {session?.data?.user?.id === data.creator?._id &&
-              pathName === "/profile" && (
-                <div className="flex-center gap-4 border-t border-gray-100">
-                  <p
-                    className="font-inter text-sm green_gradient cursor-pointer"
+            {session?.data?.user?.id === data?.creator?._id &&
+              pathName === "/optiflow/profile" && (
+                <div className="flex justify-between gap-4 border-gray-100">
+                  <Button
+                    variant={"default"}
+                    className="text-sm cursor-pointer min-w-20"
                     onClick={handleEdit}
                   >
                     Edit
-                  </p>
-                  <p
-                    className="font-inter text-sm orange_gradient cursor-pointer"
+                  </Button>
+                  <Button
+                    variant={"destructive"}
+                    className="text-sm  cursor-pointer min-w-20"
                     onClick={handleDelete}
                   >
                     Delete
-                  </p>
+                  </Button>
                 </div>
               )}
           </span>
           <span>
             <p
-              className="font-inter text-sm blue_gradient cursor-pointer"
-              onClick={() => handleTagClick && handleTagClick(data.tag)}
+              className="font-inter text-sm blue_gradient cursor-pointer mt-5"
+              onClick={() => handleTagClick && handleTagClick(data?.tag)}
             >
-              #{data.tag}
+              #{data?.tag}
             </p>
           </span>
         </div>
@@ -96,4 +103,4 @@ const dataCard = ({ data, handleEdit, handleDelete, handleTagClick }: any) => {
   );
 };
 
-export default dataCard;
+export default PostCard;

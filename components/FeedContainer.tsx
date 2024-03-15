@@ -4,6 +4,7 @@
 import React, { useState } from "react";
 import Rightbar from "./Rightbar";
 import Feed from "./Feed";
+import MobileRightbar from "./MobileRightbar";
 
 const FeedContainer = ({ allPosts }: any) => {
   const [searchText, setSearchText] = useState("");
@@ -42,6 +43,18 @@ const FeedContainer = ({ allPosts }: any) => {
 
   return (
     <div className="">
+      <div className="fixed top-4 right-5 z-50  md:hidden">
+        <MobileRightbar
+          allPosts={allPosts}
+          searchtext={searchText}
+          setSearchText={setSearchText}
+          searchedResults={searchedResults}
+          setSearchedResults={setSearchedResults}
+          handleChange={handleSearchChange}
+          handleTagClick={handleTagClick}
+        />
+      </div>
+
       <Rightbar
         allPosts={allPosts}
         searchtext={searchText}
@@ -51,7 +64,7 @@ const FeedContainer = ({ allPosts }: any) => {
         handleChange={handleSearchChange}
         handleTagClick={handleTagClick}
       />
-      <div className="mr-[360px]">
+      <div className="md:mr-[360px]">
         <Feed
           allPosts={allPosts}
           searchtext={searchText}

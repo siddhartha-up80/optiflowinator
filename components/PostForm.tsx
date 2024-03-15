@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Link from "next/link";
 import React, { useState } from "react";
@@ -26,8 +26,7 @@ const PostForm = ({
   handleSubmit,
   updateCodeValue,
 }: PostFromProps) => {
-
-    const [newCode, setNewCode] = useState(post.post);
+  const [newCode, setNewCode] = useState(post.post);
   const handleChange = (value: any, event: any) => {
     // console.log("here is the current model value:", value);
     setNewCode(value);
@@ -39,7 +38,7 @@ const PostForm = ({
       <form onSubmit={handleSubmit} className="flex flex-col gap-3 p-2">
         <Label>
           <span className="font-semibold text-base text-gray-700">
-            Your code post
+            {type} Your code post
           </span>
         </Label>
         {/* <Textarea

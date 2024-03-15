@@ -25,13 +25,13 @@ const SidebarDesktop = (props: SIdebarDesktopProps) => {
   //   console.log(session);
 
   return (
-    <aside className="w-[270px] max-w-xs h-screen fixed left-0 top-0 z-40 border-r bg-white dark:bg-black">
+    <aside className="md:w-[270px] w-full max-w-xs h-screen fixed md:left-0 right-0 top-0 z-40 border-r bg-white dark:bg-black">
       <div className="h-full px-3 py-4">
         {/* <h3 className="mx-3 text-lg font-semibold text-foreground">Optiflow</h3> */}
         <h3>
           <Link
             href={`/`}
-            className="text-2xl md:text-3xl font-bold flex gap-x-1 flex-col md:flex-row leading-tight"
+            className="text-2xl md:text-3xl font-bold flex gap-x-1 flex-row leading-tight"
           >
             <span>OptiFlow</span>
             <span className="text-green-600">Inator</span>
