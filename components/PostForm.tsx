@@ -26,7 +26,8 @@ const PostForm = ({
   handleSubmit,
   updateCodeValue,
 }: PostFromProps) => {
-  const [newCode, setNewCode] = useState(post.post);
+  
+  const [newCode, setNewCode] = useState(post?.post);
   const handleChange = (value: any, event: any) => {
     // console.log("here is the current model value:", value);
     setNewCode(value);

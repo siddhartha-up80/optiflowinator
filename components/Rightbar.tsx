@@ -28,7 +28,7 @@ const Rightbar = ({
             </div>
             <div className="p-3 flex justify-between flex-col overflow-y-auto">
               <div className="flex flex-wrap flex-col max-h-[60vh]">
-                {allPosts.map((post: any, index: any) => (
+                {allPosts?.map((post: any, index: any) => (
                   <div key={index}>
                     <div className="mb-3 leading-tight">
                       <div>

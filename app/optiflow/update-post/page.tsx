@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import PostForm from "@/components/PostForm";
+import { Suspense } from "react";
 
 const UpdatePrompt = () => {
   const router = useRouter();
@@ -52,14 +53,18 @@ const UpdatePrompt = () => {
   };
 
   return (
-    <PostForm
-      type="Edit"
-      post={post}
-      updateCodeValue={post}
-      setPost={setPost}
-      submitting={submitting}
-      handleSubmit={updatePrompt}
-    />
+    <Suspense>
+      {post.post != "" && (
+        <PostForm
+          type="Edit"
+          post={post}
+          updateCodeValue={post}
+          setPost={setPost}
+          submitting={submitting}
+          handleSubmit={updatePrompt}
+        />
+      )}
+    </Suspense>
   );
 };
 
