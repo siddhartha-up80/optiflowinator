@@ -25,8 +25,8 @@ const SidebarDesktop = (props: SIdebarDesktopProps) => {
   //   console.log(session);
 
   return (
-    <aside className="md:w-[270px] w-full max-w-xs h-screen fixed md:left-0 right-0 top-0 z-40 border-r bg-white dark:bg-black">
-      <div className="h-full px-3 py-4">
+    <aside className="md:w-[270px] w-full max-w-xs h-screen fixed md:left-0 left-0 top-0 z-40 border-r bg-white dark:bg-black">
+      <div className="md:h-full h-max px-3 py-4">
         {/* <h3 className="mx-3 text-lg font-semibold text-foreground">Optiflow</h3> */}
         <h3>
           <Link

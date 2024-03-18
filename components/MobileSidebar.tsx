@@ -13,7 +13,7 @@ const MobileSidebar = () => {
           <Menu />
         </span>
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent side={"left"}>
         <Sidebar />
       </SheetContent>
     </Sheet>
