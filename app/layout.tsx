@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import { CodeEditorProvider } from "./context/CodeEditorContext";
 import { SessionProvider } from "next-auth/react";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,13 +26,13 @@ export default function RootLayout({
         content="wuKkVFD1dhs31EjQNk81yBbw-temshhMPPc8JGAUC94"
       />
       <body
-        className={inter.className}
-        style={{
-          backgroundImage: 'url("/images/background.jpg")',
-          backgroundPosition: "center",
-          backgroundBlendMode: "multiply",
-          backgroundSize: "cover",
-        }}
+        className={cn(inter.className, "bg-lime-100/90")}
+        // style={{
+        //   backgroundImage: 'url("/images/background.jpg")',
+        //   backgroundPosition: "center",
+        //   backgroundBlendMode: "multiply",
+        //   backgroundSize: "cover",
+        // }}
       >
         <SessionProvider>
           {/* <div>

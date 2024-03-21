@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { Card } from "./ui/card";
 
 const Hero = () => {
   return (
@@ -30,16 +31,16 @@ const Hero = () => {
         </div>
 
         <div>
-          <div className="flex flex-wrap justify-center items-center w-full sm:w-700">
-            <div className="w-full md:w-1/2">
+          <section className="grid grid-cols-2 place-items-center gap-4">
+            <Card className="w-full h-full hover:shadow-xl hover:shadow-lime-400">
               <div className="p-4 text-center">
                 <h2 className="text-lg font-bold mb-1">Step 1</h2>
                 <p className="text-gray-700">
                   Insert the code you want to be <br /> explained.
                 </p>
               </div>
-            </div>
-            <div className="w-full md:w-1/2">
+            </Card>
+            <Card className="w-full h-full hover:shadow-xl hover:shadow-lime-400">
               <div className="p-4 text-center">
                 <h2 className="text-lg font-bold mb-2">Step 2</h2>
                 <p className="text-gray-700">
@@ -47,8 +48,8 @@ const Hero = () => {
                   optimized.
                 </p>
               </div>
-            </div>
-            <div className="w-full md:w-1/2">
+            </Card>
+            <Card className="w-full h-full hover:shadow-xl hover:shadow-lime-400">
               <div className="p-4 text-center">
                 <h2 className="text-lg font-bold mb-2">Step 3</h2>
                 <p className="text-gray-700">
@@ -56,8 +57,8 @@ const Hero = () => {
                   <br /> to continue sharing with community.
                 </p>
               </div>
-            </div>
-            <div className="w-full md:w-1/2">
+            </Card>
+            <Card className="w-full h-full hover:shadow-xl hover:shadow-lime-400">
               <div className="p-4 text-center">
                 <h2 className="text-lg font-bold mb-2">Step 4</h2>
                 <p className="text-gray-700">
@@ -65,8 +66,8 @@ const Hero = () => {
                   with fellow developers.
                 </p>
               </div>
-            </div>
-          </div>
+            </Card>
+          </section>
         </div>
       </section>
     </div>

@@ -43,9 +43,9 @@ const AIEditor = () => {
 
   return (
     <div>
-      <div className="bg-gradient-to-b bg-green-600 ">
+      <div className="bg-gradient-to-b bg-green-600">
         <div className=" flex md:flex-col-reverse flex-col mx-auto lg:flex-row items-stretch min-h-[80vh] md:p-0 px-5">
-          <div className="flex flex-col md:px-6 px-2 py-8 space-y-6 rounded-sm sm:p-8 lg:p-12 lg:w-1/2 xl:w-2/5 h-full">
+          <div className="flex flex-col md:px-6 py-8 space-y-6 rounded-sm sm:p-8 lg:p-12 lg:w-1/2 xl:w-2/5 h-full">
             <div className="flex space-x-2 sm:space-x-4">
               <div className="space-y-2 text-gray-50 ">
                 <p className="text-lg leading-relaxed font-semibold">
@@ -125,7 +125,11 @@ const AIEditor = () => {
                     Explain
                   </Button> */}
 
-                  <DropDownBasic getAiCode={getAiCode} codeValue={codeValue} setLanguage={setLanguage} />
+                  <DropDownBasic
+                    getAiCode={getAiCode}
+                    codeValue={codeValue}
+                    setLanguage={setLanguage}
+                  />
                 </div>
               </div>
             </div>
@@ -148,14 +152,12 @@ const AIEditor = () => {
                 showcopy={true}
                 aiValue={aiCode}
                 language={language}
-                
               />
             ) : (
               <AICodeEditor
                 showcopy={true}
                 aiValue={codeValue}
                 language={language}
-                
               />
             )}
           </div>
